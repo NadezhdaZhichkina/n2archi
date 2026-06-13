@@ -6,558 +6,527 @@
   <title>n2 Архитектурная студия — Дизайн-проект квартиры</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --black: #111111;
-      --dark: #1a1a2e;
-      --accent: #c8a96e;
-      --accent-light: #e8d5b0;
-      --gray: #6b7280;
-      --light: #f9f7f4;
+      --ink: #1c1c1e;
+      --ink2: #3a3a3c;
+      --gold: #b8924a;
+      --gold-light: #f0e4cc;
+      --gold-pale: #faf6ef;
+      --gray: #8e8e93;
+      --line: #e5e2dc;
+      --bg: #faf9f7;
       --white: #ffffff;
-      --border: #e5e0d8;
+      --green: #2d6a4f;
+      --green-bg: #edf7f2;
     }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--black);
-      background: var(--white);
-      line-height: 1.6;
-    }
-
-    /* ── NAV ── */
+    /* ─── NAV ─── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 64px;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
     }
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--black);
+      display: flex; align-items: center; gap: 10px;
       text-decoration: none;
-      letter-spacing: 0.02em;
     }
-    .logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--gray);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--black); }
-    .nav-cta {
-      background: var(--accent);
-      color: var(--white) !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: #b8955a; color: var(--white) !important; }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 64px;
-    }
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 5% 5% 5% 8%;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: var(--accent-light);
-      color: #8b6914;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.3rem 0.9rem;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-      color: var(--black);
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--gray);
-      max-width: 480px;
-      margin-bottom: 2rem;
-      line-height: 1.75;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--white);
-      padding: 0.85rem 2rem;
+    .logo-mark {
+      width: 34px; height: 34px;
+      background: var(--ink);
       border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-primary:hover { background: #b8955a; transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent;
-      color: var(--black);
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: 2px solid var(--border);
-      transition: border-color 0.2s, transform 0.15s;
-      cursor: pointer;
-    }
-    .btn-outline:hover { border-color: var(--accent); transform: translateY(-1px); }
-
-    .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-    }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--black);
-    }
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--gray);
-      margin-top: 0.2rem;
-    }
-
-    .hero-visual {
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .hero-img-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(200,169,110,0.15) 0%, transparent 60%);
-    }
-
-    /* ── SECTION BASE ── */
-    section { padding: 5rem 8%; }
-    .section-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.7rem;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      font-weight: 600;
-      line-height: 1.25;
-      color: var(--black);
-      margin-bottom: 1rem;
-    }
-    .section-sub {
-      font-size: 1rem;
-      color: var(--gray);
-      max-width: 540px;
-      line-height: 1.75;
-    }
-
-    /* ── WHY ── */
-    .why { background: var(--light); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .why-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 2rem;
-      border: 1px solid var(--border);
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .why-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); }
-    .why-icon {
-      width: 48px; height: 48px;
-      background: var(--accent-light);
-      border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
-    }
-    .why-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .why-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.65; }
-
-    /* ── PRICING ── */
-    .pricing-header { max-width: 560px; margin-bottom: 3.5rem; }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: start;
-    }
-    .plan {
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 2.2rem;
-      position: relative;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .plan:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
-    .plan.popular {
-      border-color: var(--accent);
-      box-shadow: 0 8px 32px rgba(200,169,110,0.2);
-    }
-    .popular-badge {
-      position: absolute;
-      top: -14px; left: 50%; transform: translateX(-50%);
-      background: var(--accent);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 600;
       color: var(--white);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.3rem 1rem;
-      border-radius: 20px;
-      letter-spacing: 0.04em;
+      letter-spacing: -0.5px;
+    }
+    .logo-text { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.2; }
+    .logo-sub { font-size: 0.7rem; color: var(--gray); font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-btn {
+      background: var(--ink); color: var(--white);
+      padding: .5rem 1.2rem; border-radius: 8px;
+      font-size: .85rem; font-weight: 600;
+      text-decoration: none; transition: background .2s;
       white-space: nowrap;
     }
-    .plan-name {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 0.5rem;
+    .nav-btn:hover { background: var(--gold); }
+    .nav-burger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding-top: 60px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 55% 45%;
     }
-    .plan-title {
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 7% 6% 7% 8%;
+      background: var(--white);
+    }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green-bg); color: var(--green);
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .35rem .85rem; border-radius: 20px;
+      margin-bottom: 1.8rem;
+      width: fit-content;
+    }
+    .hero-kicker::before { content: '✓'; font-size: .8rem; }
+    h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: 600; line-height: 1.18;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
     }
+    h1 em { font-style: italic; color: var(--gold); }
+    .hero-lead {
+      font-size: 1rem; color: var(--gray);
+      max-width: 460px; line-height: 1.8;
+      margin-bottom: 2.2rem;
+    }
+    .hero-savings {
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-light);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2.2rem;
+      max-width: 460px;
+    }
+    .savings-title { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--gold); margin-bottom: .8rem; }
+    .savings-row { display: flex; justify-content: space-between; align-items: center; font-size: .88rem; padding: .3rem 0; border-bottom: 1px dashed var(--gold-light); }
+    .savings-row:last-child { border-bottom: none; }
+    .savings-bad { color: var(--gray); text-decoration: line-through; }
+    .savings-good { font-weight: 700; color: var(--green); }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-dark {
+      background: var(--ink); color: var(--white);
+      padding: .9rem 2rem; border-radius: 10px;
+      font-size: .95rem; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background .2s, transform .15s;
+      display: inline-block;
+    }
+    .btn-dark:hover { background: #333; transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent; color: var(--ink);
+      padding: .9rem 1.8rem; border-radius: 10px;
+      font-size: .95rem; font-weight: 600;
+      text-decoration: none; border: 2px solid var(--line);
+      transition: border-color .2s, transform .15s;
+      display: inline-block; cursor: pointer;
+    }
+    .btn-ghost:hover { border-color: var(--ink); transform: translateY(-2px); }
+    .hero-trust {
+      display: flex; gap: 2rem; margin-top: 2.5rem;
+      padding-top: 2rem; border-top: 1px solid var(--line);
+    }
+    .trust-item { text-align: left; }
+    .trust-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem; font-weight: 600; color: var(--ink);
+    }
+    .trust-label { font-size: .75rem; color: var(--gray); margin-top: .1rem; }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: var(--ink);
+    }
+    .hero-plan-wrap {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: 5%;
+    }
+
+    /* ─── PROBLEM BLOCK ─── */
+    .problem {
+      background: var(--ink);
+      padding: 5rem 8%;
+      color: var(--white);
+    }
+    .problem-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .problem .section-label { color: rgba(255,255,255,.4); }
+    .problem h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+      font-weight: 600; line-height: 1.25;
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .problem h2 em { font-style: italic; color: var(--gold); }
+    .problem-lead { font-size: .95rem; color: rgba(255,255,255,.5); line-height: 1.8; }
+    .cost-comparison { display: flex; flex-direction: column; gap: 1rem; }
+    .cost-row {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding: 1.2rem 1.4rem;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem;
+    }
+    .cost-row.highlight {
+      background: rgba(184,146,74,.12);
+      border-color: rgba(184,146,74,.3);
+    }
+    .cost-label { font-size: .88rem; color: rgba(255,255,255,.7); }
+    .cost-label strong { display: block; font-size: .95rem; color: var(--white); margin-bottom: .2rem; }
+    .cost-price { font-size: 1.1rem; font-weight: 700; white-space: nowrap; }
+    .cost-price.bad { color: #ff6b6b; }
+    .cost-price.good { color: #6bcb77; }
+    .cost-total {
+      background: rgba(107,203,119,.1); border: 1px solid rgba(107,203,119,.25);
+      border-radius: 12px; padding: 1.2rem 1.4rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .cost-total-label { font-size: .9rem; color: rgba(255,255,255,.7); }
+    .cost-total-num { font-size: 1.3rem; font-weight: 800; color: #6bcb77; }
+
+    /* ─── SECTION UTILITY ─── */
+    .section-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: .6rem; display: block;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+      font-weight: 600; line-height: 1.25;
+      color: var(--ink); margin-bottom: .9rem;
+    }
+    .section-lead {
+      font-size: .97rem; color: var(--gray);
+      line-height: 1.8; max-width: 520px;
+    }
+
+    /* ─── TEAM ─── */
+    .team { padding: 5rem 8%; background: var(--bg); }
+    .team-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; margin-top: 3rem;
+    }
+    .team-card {
+      background: var(--white); border-radius: 16px;
+      border: 1px solid var(--line); overflow: hidden;
+      display: grid; grid-template-columns: 140px 1fr;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .team-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.08); transform: translateY(-3px); }
+    .team-photo {
+      background: linear-gradient(160deg, #e8d5b0 0%, #c8a96e 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+    }
+    .team-info { padding: 1.6rem; }
+    .team-role {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: .3rem;
+    }
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 600; margin-bottom: .6rem;
+    }
+    .team-desc { font-size: .85rem; color: var(--gray); line-height: 1.7; }
+    .team-skills { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+    .skill-tag {
+      background: var(--gold-pale); color: var(--ink2);
+      font-size: .72rem; font-weight: 600;
+      padding: .25rem .6rem; border-radius: 6px;
+    }
+
+    /* ─── SERVICES / PRICING ─── */
+    .pricing { padding: 5rem 8%; }
+    .pricing-head {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 3rem;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .plans {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+    }
+    .plan {
+      border-radius: 16px; border: 2px solid var(--line);
+      overflow: hidden; position: relative;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .plan:hover { box-shadow: 0 16px 50px rgba(0,0,0,.1); transform: translateY(-5px); }
+    .plan.featured { border-color: var(--gold); }
+    .plan-header { padding: 1.8rem 1.8rem 1.4rem; }
+    .plan.featured .plan-header { background: var(--ink); }
+    .plan-badge {
+      display: inline-block;
+      background: var(--gold); color: var(--white);
+      font-size: .68rem; font-weight: 800;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .25rem .7rem; border-radius: 20px;
+      margin-bottom: .8rem;
+    }
+    .plan-num {
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: .3rem;
+    }
+    .plan.featured .plan-num { color: rgba(255,255,255,.4); }
+    .plan-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 600; margin-bottom: .4rem; }
+    .plan.featured .plan-name { color: var(--white); }
+    .plan-tagline { font-size: .82rem; color: var(--gray); line-height: 1.6; }
+    .plan.featured .plan-tagline { color: rgba(255,255,255,.5); }
     .plan-price {
-      margin: 1.2rem 0;
-      display: flex;
-      align-items: baseline;
-      gap: 0.3rem;
+      margin-top: 1.2rem;
+      display: flex; align-items: baseline; gap: .3rem;
     }
-    .price-num {
+    .plan-from { font-size: .8rem; color: var(--gray); }
+    .plan.featured .plan-from { color: rgba(255,255,255,.4); }
+    .plan-amount {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--black);
+      font-size: 2rem; font-weight: 600; color: var(--ink);
     }
-    .price-from {
-      font-size: 0.85rem;
-      color: var(--gray);
-    }
-    .price-unit {
-      font-size: 0.85rem;
-      color: var(--gray);
-    }
-    .plan-desc {
-      font-size: 0.88rem;
-      color: var(--gray);
-      margin-bottom: 1.5rem;
-      line-height: 1.65;
-    }
-    .plan-features { list-style: none; margin-bottom: 2rem; }
+    .plan.featured .plan-amount { color: var(--white); }
+    .plan-body { padding: 1.4rem 1.8rem 1.8rem; }
+    .plan-features { list-style: none; margin-bottom: 1.8rem; }
     .plan-features li {
-      font-size: 0.88rem;
-      color: var(--black);
-      padding: 0.45rem 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: .6rem;
+      font-size: .87rem; padding: .45rem 0;
+      border-bottom: 1px solid var(--line); color: var(--ink);
     }
     .plan-features li:last-child { border-bottom: none; }
-    .feat-check { color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .feat-x { color: #d1d5db; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .plan .btn-primary, .plan .btn-outline { display: block; text-align: center; width: 100%; }
+    .fi { font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .fi.yes { color: var(--gold); }
+    .fi.no { color: #d1d5db; }
+    .fi.no + span { color: var(--gray); }
+    .plan .btn-dark, .plan .btn-ghost { display: block; text-align: center; width: 100%; }
+    .plan.featured .btn-dark { background: var(--gold); }
+    .plan.featured .btn-dark:hover { background: #a07a38; }
 
-    /* ── PROCESS ── */
-    .process { background: var(--dark); color: var(--white); }
-    .process .section-title { color: var(--white); }
-    .process .section-sub { color: rgba(255,255,255,0.55); }
-    .process-steps {
+    /* ─── WHAT'S INSIDE ─── */
+    .inside { background: var(--bg); padding: 5rem 8%; }
+    .inside-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1.2rem; margin-top: 3rem;
+    }
+    .inside-card {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 14px; padding: 1.6rem 1.4rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .inside-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.07); transform: translateY(-3px); }
+    .inside-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--gold-pale); font-size: 1.3rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .inside-card h3 { font-size: .93rem; font-weight: 700; margin-bottom: .4rem; }
+    .inside-card p { font-size: .82rem; color: var(--gray); line-height: 1.65; }
+
+    /* ─── PORTFOLIO ─── */
+    .portfolio { padding: 5rem 8%; }
+    .portfolio-head {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 2.5rem;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .port-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 3.5rem;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+    }
+    .port-card {
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--white);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .port-card:hover { box-shadow: 0 14px 44px rgba(0,0,0,.1); transform: translateY(-4px); }
+    .port-visual {
+      aspect-ratio: 4/3; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    /* SVG plan placeholders */
+    .port-visual svg { width: 100%; height: 100%; }
+    .port-tag {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(0,0,0,.6); backdrop-filter: blur(6px);
+      color: var(--white); font-size: .68rem; font-weight: 700;
+      padding: .25rem .65rem; border-radius: 6px;
+      letter-spacing: .05em; text-transform: uppercase;
+    }
+    .port-info { padding: 1.1rem 1.3rem; }
+    .port-title { font-size: .93rem; font-weight: 600; margin-bottom: .2rem; }
+    .port-meta { font-size: .8rem; color: var(--gray); }
+
+    /* ─── PROCESS ─── */
+    .process { background: var(--ink); padding: 5rem 8%; }
+    .process h2 { color: var(--white); }
+    .process .section-label { color: rgba(255,255,255,.3); }
+    .process .section-lead { color: rgba(255,255,255,.4); }
+    .steps {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1.5rem; margin-top: 3.5rem;
+    }
+    .step {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px; padding: 1.8rem 1.5rem;
       position: relative;
     }
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px; left: 5%; right: 5%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(200,169,110,0.4), transparent);
+    .step::after {
+      content: '→';
+      position: absolute; right: -1rem; top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,.15); font-size: 1.2rem;
     }
-    .step { text-align: center; position: relative; }
-    .step-num {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: rgba(200,169,110,0.15);
-      border: 2px solid var(--accent);
-      display: flex; align-items: center; justify-content: center;
+    .step:last-child::after { display: none; }
+    .step-n {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin: 0 auto 1.2rem;
+      font-size: 2.5rem; font-weight: 600;
+      color: rgba(184,146,74,.25); line-height: 1;
+      margin-bottom: .8rem;
     }
-    .step h3 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
-    .step p { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .step h3 { font-size: .95rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
+    .step p { font-size: .82rem; color: rgba(255,255,255,.4); line-height: 1.7; }
 
-    /* ── PORTFOLIO ── */
-    .portfolio-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-      gap: 1rem;
+    /* ─── GUARANTEES ─── */
+    .guarantees { padding: 5rem 8%; background: var(--bg); }
+    .guarantees-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem; margin-top: 3rem;
     }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+    .g-card {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 14px; padding: 1.8rem;
     }
-    .portfolio-card {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: box-shadow 0.2s, transform 0.2s;
-      background: var(--white);
-    }
-    .portfolio-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
-    .portfolio-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-    }
-    /* Placeholder блюр-градиент вместо реальных фото */
-    .img-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.7);
-      font-weight: 500;
-      gap: 0.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .img-placeholder span { font-size: 2rem; }
-    .ph-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-    .ph-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-    .ph-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-    .ph-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-    .ph-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-    .ph-6 { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
-    .ph-hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 70%, #533483 100%); }
-    .ph-hero-content {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: rgba(255,255,255,0.8);
-    }
-    .ph-hero-icon { font-size: 5rem; opacity: 0.6; }
-    .ph-hero-text { font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }
-    /* Схематичный план квартиры */
-    .floor-plan {
-      width: 100%;
-      height: 100%;
-      padding: 20px;
-    }
+    .g-icon { font-size: 1.8rem; margin-bottom: .9rem; }
+    .g-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .5rem; }
+    .g-card p { font-size: .85rem; color: var(--gray); line-height: 1.7; }
 
-    .portfolio-info { padding: 1.2rem 1.4rem; }
-    .portfolio-tag {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.3rem;
-    }
-    .portfolio-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem; }
-    .portfolio-meta { font-size: 0.82rem; color: var(--gray); }
-
-    /* ── REVIEWS ── */
-    .reviews { background: var(--light); }
+    /* ─── REVIEWS ─── */
+    .reviews { padding: 5rem 8%; }
     .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem; margin-top: 3rem;
     }
-    .review-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 1.8rem;
-      border: 1px solid var(--border);
+    .review {
+      background: var(--bg); border-radius: 14px;
+      border: 1px solid var(--line); padding: 1.8rem;
     }
-    .stars { color: var(--accent); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
-    .review-text {
-      font-size: 0.9rem;
-      color: var(--black);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .reviewer { display: flex; align-items: center; gap: 0.8rem; }
-    .reviewer-avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--accent-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
+    .review-stars { color: var(--gold); font-size: .95rem; letter-spacing: 2px; margin-bottom: .9rem; }
+    .review-text { font-size: .88rem; line-height: 1.75; color: var(--ink); font-style: italic; margin-bottom: 1.4rem; }
+    .reviewer { display: flex; align-items: center; gap: .8rem; }
+    .rev-av {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--gold-pale); display: flex;
+      align-items: center; justify-content: center; font-size: 1.1rem;
       flex-shrink: 0;
     }
-    .reviewer-name { font-size: 0.88rem; font-weight: 600; }
-    .reviewer-meta { font-size: 0.78rem; color: var(--gray); }
+    .rev-name { font-size: .87rem; font-weight: 600; }
+    .rev-meta { font-size: .75rem; color: var(--gray); }
 
-    /* ── FAQ ── */
-    .faq-list { max-width: 720px; margin-top: 3rem; }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 1.4rem 0;
-    }
+    /* ─── FAQ ─── */
+    .faq { background: var(--bg); padding: 5rem 8%; }
+    .faq-wrap { max-width: 720px; margin-top: 3rem; }
+    .faq-item { border-bottom: 1px solid var(--line); }
     .faq-q {
-      font-size: 0.98rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-    .faq-q::after { content: '+'; font-size: 1.3rem; color: var(--accent); flex-shrink: 0; }
-    .faq-a {
-      font-size: 0.9rem;
-      color: var(--gray);
-      line-height: 1.75;
-      margin-top: 0.8rem;
-    }
-
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--dark);
-      text-align: center;
-      padding: 6rem 8%;
-    }
-    .cta-section .section-label { justify-content: center; display: block; }
-    .cta-section .section-title { color: var(--white); text-align: center; margin: 0 auto 1rem; max-width: 600px; }
-    .cta-section .section-sub { color: rgba(255,255,255,0.5); text-align: center; margin: 0 auto 2.5rem; }
-    .cta-form {
-      display: flex;
-      gap: 0.8rem;
-      max-width: 480px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-    .cta-input {
-      flex: 1;
-      min-width: 200px;
-      padding: 0.85rem 1.2rem;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.07);
-      color: var(--white);
-      font-size: 0.95rem;
-      outline: none;
+      width: 100%; text-align: left; background: none; border: none;
+      padding: 1.3rem 0; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      font-size: .97rem; font-weight: 600; color: var(--ink);
       font-family: inherit;
     }
-    .cta-input::placeholder { color: rgba(255,255,255,0.3); }
-    .cta-input:focus { border-color: var(--accent); }
+    .faq-q .faq-icon { color: var(--gold); font-size: 1.2rem; transition: transform .25s; flex-shrink: 0; }
+    .faq-q.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { font-size: .88rem; color: var(--gray); line-height: 1.8; padding-bottom: 1.3rem; display: none; }
+    .faq-a.open { display: block; }
 
-    /* ── FOOTER ── */
+    /* ─── CTA ─── */
+    .cta { padding: 6rem 8%; text-align: center; background: var(--white); }
+    .cta h2 { max-width: 580px; margin: 0 auto 1rem; }
+    .cta .section-lead { margin: 0 auto 2.5rem; text-align: center; }
+    .cta-form {
+      display: flex; gap: .8rem; max-width: 500px;
+      margin: 0 auto; flex-wrap: wrap; justify-content: center;
+    }
+    .cta-input {
+      flex: 1; min-width: 200px;
+      padding: .9rem 1.3rem; border-radius: 10px;
+      border: 2px solid var(--line); background: var(--bg);
+      font-size: .95rem; font-family: inherit;
+      outline: none; transition: border-color .2s;
+      color: var(--ink);
+    }
+    .cta-input:focus { border-color: var(--gold); background: var(--white); }
+    .cta-note { font-size: .75rem; color: var(--gray); margin-top: .8rem; }
+    .cta-icons {
+      display: flex; justify-content: center; gap: 2.5rem;
+      margin-top: 3rem; flex-wrap: wrap;
+    }
+    .cta-icon-item { display: flex; align-items: center; gap: .5rem; font-size: .83rem; color: var(--gray); }
+    .cta-icon-item span { font-size: 1.1rem; }
+
+    /* ─── FOOTER ─── */
     footer {
-      background: #0d0d14;
-      color: rgba(255,255,255,0.5);
-      padding: 3rem 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      background: var(--ink); color: rgba(255,255,255,.4);
+      padding: 2.5rem 8%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
     }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--white);
-      text-decoration: none;
+    .footer-logo-wrap { display: flex; align-items: center; gap: 10px; }
+    .footer-mark {
+      width: 30px; height: 30px; background: rgba(255,255,255,.1);
+      border-radius: 7px; display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: .9rem; color: var(--white);
     }
-    .footer-logo span { color: var(--accent); }
-    footer p { font-size: 0.82rem; }
+    .footer-name { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.7); }
+    footer p { font-size: .78rem; }
     .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--accent); }
+    .footer-links a { color: rgba(255,255,255,.3); text-decoration: none; font-size: .78rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
 
-    /* ── MOBILE ── */
-    @media (max-width: 900px) {
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-visual { height: 300px; }
-      .why-grid, .pricing-grid, .process-steps, .reviews-grid { grid-template-columns: 1fr; }
-      .portfolio-grid { grid-template-columns: 1fr 1fr; }
-      .process-steps::before { display: none; }
+      .hero-right { height: 280px; }
+      .problem-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .plans { grid-template-columns: 1fr; max-width: 420px; }
+      .inside-grid { grid-template-columns: repeat(2,1fr); }
+      .steps { grid-template-columns: repeat(2,1fr); }
+      .step::after { display: none; }
+      .port-grid { grid-template-columns: repeat(2,1fr); }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .guarantees-grid { grid-template-columns: repeat(2,1fr); }
+      .team-grid { grid-template-columns: 1fr; }
       nav { padding: 0 4%; }
       .nav-links { display: none; }
     }
     @media (max-width: 600px) {
-      section { padding: 3.5rem 5%; }
-      .hero-content { padding: 4rem 5% 2rem; }
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .portfolio-header { flex-direction: column; align-items: flex-start; }
+      .hero-left { padding: 4rem 5% 3rem; }
+      section, .problem, .process, .faq, .cta, footer { padding-left: 5%; padding-right: 5%; }
+      .inside-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .port-grid { grid-template-columns: 1fr; }
+      .guarantees-grid { grid-template-columns: 1fr; }
+      .portfolio { padding: 3.5rem 5%; }
+      .pricing { padding: 3.5rem 5%; }
     }
   </style>
 </head>
@@ -565,250 +534,465 @@
 
 <!-- NAV -->
 <nav>
-  <a class="logo" href="#">n2 <span>Архитектурная студия</span></a>
+  <a class="logo" href="#">
+    <div class="logo-mark">n²</div>
+    <div>
+      <div class="logo-text">Архитектурная студия</div>
+      <div class="logo-sub">Дизайн-проект квартиры и дома</div>
+    </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#pricing">Тарифы</a></li>
     <li><a href="#portfolio">Работы</a></li>
-    <li><a href="#process">Как работаем</a></li>
+    <li><a href="#team">О нас</a></li>
     <li><a href="#faq">Вопросы</a></li>
-    <li><a class="nav-cta" href="#contact">Получить КП</a></li>
+    <li><a class="nav-btn" href="#cta">Получить расчёт</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <span class="hero-badge">Архитектор + инженер = две Нади</span>
-    <h1>Полные чертежи<br/>без переплат —<br/>от <em>9 900 ₽</em></h1>
-    <p class="hero-desc">Нас двое: Надя-архитектор делает планировку и расстановку мебели, Надя-инженер — розетки, свет, водопровод и канализацию. Все чертежи для строителей в одном проекте.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#pricing">Выбрать пакет</a>
-      <a class="btn-outline" href="#portfolio">Примеры работ</a>
+  <div class="hero-left">
+    <div class="hero-kicker">Экономим на ремонте реальные деньги</div>
+    <h1>Дизайн-проект,<br/>который <em>окупается</em><br/>до начала ремонта</h1>
+    <p class="hero-lead">
+      Проект — это не «красивые картинки». Это документ, который защищает вас от
+      переделок, лишних работ и споров со строителями.
+    </p>
+    <div class="hero-savings">
+      <div class="savings-title">Типичная экономия с нашим проектом</div>
+      <div class="savings-row">
+        <span>Переделка электрики «не там»</span>
+        <span class="savings-bad">−35 000 ₽</span>
+      </div>
+      <div class="savings-row">
+        <span>Перенос сантехники</span>
+        <span class="savings-bad">−28 000 ₽</span>
+      </div>
+      <div class="savings-row">
+        <span>Закупка лишних материалов</span>
+        <span class="savings-bad">−18 000 ₽</span>
+      </div>
+      <div class="savings-row" style="margin-top:.3rem; padding-top:.6rem; border-top:1px solid var(--gold-light);">
+        <span style="font-weight:600;">Итого сэкономлено</span>
+        <span class="savings-good">+81 000 ₽</span>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">340+</div>
-        <div class="stat-label">готовых проектов</div>
+    <div class="hero-actions">
+      <a class="btn-dark" href="#cta">Рассчитать стоимость</a>
+      <a class="btn-ghost" href="#portfolio">Примеры работ</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="trust-num">340+</div>
+        <div class="trust-label">готовых проектов</div>
       </div>
-      <div>
-        <div class="stat-num">14 дн</div>
-        <div class="stat-label">средний срок</div>
+      <div class="trust-item">
+        <div class="trust-num">от 7 дн</div>
+        <div class="trust-label">срок сдачи</div>
       </div>
-      <div>
-        <div class="stat-num">4.9 ★</div>
-        <div class="stat-label">оценка клиентов</div>
+      <div class="trust-item">
+        <div class="trust-num">4.9 ★</div>
+        <div class="trust-label">средняя оценка</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">100%</div>
+        <div class="trust-label">по договору</div>
       </div>
     </div>
   </div>
-  <div class="hero-visual">
-    <!-- Схематичный план квартиры SVG -->
-    <svg class="hero-img" viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <rect width="600" height="700" fill="#1a1a2e"/>
-      <!-- Сетка -->
-      <defs>
-        <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-          <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(200,169,110,0.1)" stroke-width="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="600" height="700" fill="url(#grid)"/>
-
-      <!-- Внешние стены квартиры -->
-      <rect x="80" y="100" width="440" height="500" fill="none" stroke="rgba(200,169,110,0.8)" stroke-width="3" rx="2"/>
-      <!-- Внутренние стены -->
-      <!-- Горизонталь 1 -->
-      <line x1="80" y1="320" x2="330" y2="320" stroke="rgba(200,169,110,0.6)" stroke-width="2.5"/>
-      <!-- Горизонталь 2 -->
-      <line x1="330" y1="220" x2="520" y2="220" stroke="rgba(200,169,110,0.6)" stroke-width="2.5"/>
-      <!-- Вертикаль 1 -->
-      <line x1="330" y1="100" x2="330" y2="420" stroke="rgba(200,169,110,0.6)" stroke-width="2.5"/>
-      <!-- Вертикаль 2 -->
-      <line x1="190" y1="320" x2="190" y2="600" stroke="rgba(200,169,110,0.6)" stroke-width="2.5"/>
-
-      <!-- Дверные проёмы -->
-      <line x1="80" y1="440" x2="80" y2="520" stroke="#1a1a2e" stroke-width="5"/>
-      <path d="M 80 440 Q 115 440 115 475" fill="none" stroke="rgba(200,169,110,0.5)" stroke-width="1.5"/>
-      <line x1="230" y1="320" x2="295" y2="320" stroke="#1a1a2e" stroke-width="5"/>
-      <path d="M 230 320 Q 230 355 265 355" fill="none" stroke="rgba(200,169,110,0.5)" stroke-width="1.5"/>
-      <line x1="330" y1="340" x2="330" y2="400" stroke="#1a1a2e" stroke-width="5"/>
-      <path d="M 330 340 Q 365 340 365 375" fill="none" stroke="rgba(200,169,110,0.5)" stroke-width="1.5"/>
-
-      <!-- Окна -->
-      <rect x="80" y="155" width="0" height="70" fill="none"/>
-      <line x1="80" y1="160" x2="80" y2="230" stroke="rgba(100,180,255,0.7)" stroke-width="5"/>
-      <line x1="80" y1="380" x2="80" y2="450" stroke="rgba(100,180,255,0.7)" stroke-width="5"/>
-      <line x1="200" y1="100" x2="290" y2="100" stroke="rgba(100,180,255,0.7)" stroke-width="5"/>
-      <line x1="360" y1="100" x2="460" y2="100" stroke="rgba(100,180,255,0.7)" stroke-width="5"/>
-      <line x1="520" y1="270" x2="520" y2="400" stroke="rgba(100,180,255,0.7)" stroke-width="5"/>
-
-      <!-- Мебель — гостиная (левый верх) -->
-      <!-- Диван -->
-      <rect x="100" y="130" width="180" height="70" rx="8" fill="none" stroke="rgba(200,169,110,0.5)" stroke-width="1.5"/>
-      <rect x="100" y="130" width="180" height="15" rx="4" fill="rgba(200,169,110,0.15)"/>
-      <rect x="100" y="130" width="15" height="70" rx="4" fill="rgba(200,169,110,0.15)"/>
-      <rect x="265" y="130" width="15" height="70" rx="4" fill="rgba(200,169,110,0.15)"/>
-      <!-- Стол журнальный -->
-      <rect x="135" y="220" width="90" height="55" rx="6" fill="none" stroke="rgba(200,169,110,0.4)" stroke-width="1.2"/>
-      <!-- ТВ стойка -->
-      <rect x="95" y="285" width="200" height="18" rx="3" fill="rgba(200,169,110,0.25)"/>
-
-      <!-- Метки комнат -->
-      <text x="185" y="235" text-anchor="middle" fill="rgba(200,169,110,0.6)" font-size="10" font-family="Inter, sans-serif" letter-spacing="1">ГОСТИНАЯ</text>
-      <text x="430" y="165" text-anchor="middle" fill="rgba(200,169,110,0.6)" font-size="10" font-family="Inter, sans-serif" letter-spacing="1">СПАЛЬНЯ</text>
-      <text x="430" y="380" text-anchor="middle" fill="rgba(200,169,110,0.6)" font-size="10" font-family="Inter, sans-serif" letter-spacing="1">КУХ-СТОЛОВАЯ</text>
-      <text x="135" y="460" text-anchor="middle" fill="rgba(200,169,110,0.6)" font-size="10" font-family="Inter, sans-serif" letter-spacing="1">С/У</text>
-      <text x="350" y="530" text-anchor="middle" fill="rgba(200,169,110,0.6)" font-size="10" font-family="Inter, sans-serif" letter-spacing="1">ПРИХОЖАЯ</text>
-
-      <!-- Розетки символы -->
-      <circle cx="130" cy="295" r="5" fill="none" stroke="rgba(255,200,50,0.6)" stroke-width="1.5"/>
-      <line x1="130" y1="290" x2="130" y2="295" stroke="rgba(255,200,50,0.6)" stroke-width="1.5"/>
-      <circle cx="300" cy="310" r="5" fill="none" stroke="rgba(255,200,50,0.6)" stroke-width="1.5"/>
-      <line x1="300" y1="305" x2="300" y2="310" stroke="rgba(255,200,50,0.6)" stroke-width="1.5"/>
-      <circle cx="480" cy="210" r="5" fill="none" stroke="rgba(255,200,50,0.6)" stroke-width="1.5"/>
-      <line x1="480" y1="205" x2="480" y2="210" stroke="rgba(255,200,50,0.6)" stroke-width="1.5"/>
-
-      <!-- Светильники символы -->
-      <circle cx="185" cy="215" r="8" fill="none" stroke="rgba(255,240,150,0.5)" stroke-width="1.2"/>
-      <line x1="185" y1="207" x2="185" y2="200" stroke="rgba(255,240,150,0.4)" stroke-width="1"/>
-      <line x1="185" y1="223" x2="185" y2="230" stroke="rgba(255,240,150,0.4)" stroke-width="1"/>
-      <line x1="177" y1="215" x2="170" y2="215" stroke="rgba(255,240,150,0.4)" stroke-width="1"/>
-      <line x1="193" y1="215" x2="200" y2="215" stroke="rgba(255,240,150,0.4)" stroke-width="1"/>
-      <circle cx="430" cy="165" r="8" fill="none" stroke="rgba(255,240,150,0.5)" stroke-width="1.2"/>
-      <line x1="430" y1="157" x2="430" y2="150" stroke="rgba(255,240,150,0.4)" stroke-width="1"/>
-      <line x1="430" y1="173" x2="430" y2="180" stroke="rgba(255,240,150,0.4)" stroke-width="1"/>
-      <line x1="422" y1="165" x2="415" y2="165" stroke="rgba(255,240,150,0.4)" stroke-width="1"/>
-      <line x1="438" y1="165" x2="445" y2="165" stroke="rgba(255,240,150,0.4)" stroke-width="1"/>
-
-      <!-- Размерные линии -->
-      <line x1="80" y1="80" x2="520" y2="80" stroke="rgba(200,169,110,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
-      <line x1="80" y1="75" x2="80" y2="85" stroke="rgba(200,169,110,0.4)" stroke-width="1.5"/>
-      <line x1="520" y1="75" x2="520" y2="85" stroke="rgba(200,169,110,0.4)" stroke-width="1.5"/>
-      <text x="300" y="72" text-anchor="middle" fill="rgba(200,169,110,0.5)" font-size="9" font-family="Inter, sans-serif">12 200</text>
-
-      <line x1="555" y1="100" x2="555" y2="600" stroke="rgba(200,169,110,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
-      <line x1="550" y1="100" x2="560" y2="100" stroke="rgba(200,169,110,0.4)" stroke-width="1.5"/>
-      <line x1="550" y1="600" x2="560" y2="600" stroke="rgba(200,169,110,0.4)" stroke-width="1.5"/>
-      <text x="580" y="355" text-anchor="middle" fill="rgba(200,169,110,0.5)" font-size="9" font-family="Inter, sans-serif" transform="rotate(90, 580, 355)">9 600</text>
-
-      <!-- Заголовок плана -->
-      <text x="300" y="660" text-anchor="middle" fill="rgba(200,169,110,0.35)" font-size="11" font-family="Inter, sans-serif" letter-spacing="2">ПЛАН РАССТАНОВКИ МЕБЕЛИ М 1:50</text>
-    </svg>
-    <div class="hero-img-overlay"></div>
+  <div class="hero-right">
+    <div class="hero-plan-wrap">
+      <!-- Детальный план квартиры SVG -->
+      <svg viewBox="0 0 500 580" xmlns="http://www.w3.org/2000/svg">
+        <rect width="500" height="580" fill="#1c1c1e"/>
+        <defs>
+          <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(184,146,74,.07)" stroke-width=".5"/>
+          </pattern>
+        </defs>
+        <rect width="500" height="580" fill="url(#g)"/>
+        <!-- Контур квартиры -->
+        <rect x="50" y="60" width="400" height="460" fill="rgba(184,146,74,.04)" stroke="rgba(184,146,74,.9)" stroke-width="2.5" rx="1"/>
+        <!-- Стены -->
+        <line x1="50" y1="270" x2="260" y2="270" stroke="rgba(184,146,74,.7)" stroke-width="2"/>
+        <line x1="260" y1="60" x2="260" y2="370" stroke="rgba(184,146,74,.7)" stroke-width="2"/>
+        <line x1="260" y1="180" x2="450" y2="180" stroke="rgba(184,146,74,.7)" stroke-width="2"/>
+        <line x1="150" y1="270" x2="150" y2="520" stroke="rgba(184,146,74,.7)" stroke-width="2"/>
+        <!-- Дверные проёмы -->
+        <line x1="50" y1="380" x2="50" y2="450" stroke="#1c1c1e" stroke-width="4"/>
+        <path d="M50,380 Q85,380 85,415" fill="none" stroke="rgba(184,146,74,.4)" stroke-width="1.2"/>
+        <line x1="175" y1="270" x2="235" y2="270" stroke="#1c1c1e" stroke-width="4"/>
+        <path d="M175,270 Q175,305 210,305" fill="none" stroke="rgba(184,146,74,.4)" stroke-width="1.2"/>
+        <line x1="260" y1="290" x2="260" y2="350" stroke="#1c1c1e" stroke-width="4"/>
+        <path d="M260,290 Q295,290 295,325" fill="none" stroke="rgba(184,146,74,.4)" stroke-width="1.2"/>
+        <!-- Окна -->
+        <rect x="46" y="110" width="8" height="60" fill="rgba(100,180,255,.5)" rx="1"/>
+        <rect x="46" y="340" width="8" height="80" fill="rgba(100,180,255,.5)" rx="1"/>
+        <rect x="160" y="56" width="70" height="8" fill="rgba(100,180,255,.5)" rx="1"/>
+        <rect x="300" y="56" width="90" height="8" fill="rgba(100,180,255,.5)" rx="1"/>
+        <rect x="446" y="220" width="8" height="90" fill="rgba(100,180,255,.5)" rx="1"/>
+        <!-- Метки комнат -->
+        <text x="155" y="170" text-anchor="middle" fill="rgba(184,146,74,.55)" font-size="9" font-family="Inter,sans-serif" letter-spacing="1.5" font-weight="600">ГОСТИНАЯ</text>
+        <text x="155" y="184" text-anchor="middle" fill="rgba(184,146,74,.3)" font-size="8" font-family="Inter,sans-serif">28.4 м²</text>
+        <text x="355" y="125" text-anchor="middle" fill="rgba(184,146,74,.55)" font-size="9" font-family="Inter,sans-serif" letter-spacing="1.5" font-weight="600">СПАЛЬНЯ</text>
+        <text x="355" y="139" text-anchor="middle" fill="rgba(184,146,74,.3)" font-size="8" font-family="Inter,sans-serif">14.2 м²</text>
+        <text x="355" y="300" text-anchor="middle" fill="rgba(184,146,74,.55)" font-size="9" font-family="Inter,sans-serif" letter-spacing="1.5" font-weight="600">КУХНЯ</text>
+        <text x="355" y="314" text-anchor="middle" fill="rgba(184,146,74,.3)" font-size="8" font-family="Inter,sans-serif">12.8 м²</text>
+        <text x="100" y="390" text-anchor="middle" fill="rgba(184,146,74,.55)" font-size="8" font-family="Inter,sans-serif" letter-spacing="1">С/У</text>
+        <text x="300" y="455" text-anchor="middle" fill="rgba(184,146,74,.55)" font-size="9" font-family="Inter,sans-serif" letter-spacing="1.5" font-weight="600">ПРИХОЖАЯ</text>
+        <!-- Мебель — диван -->
+        <rect x="65" y="90" width="140" height="60" rx="7" fill="none" stroke="rgba(184,146,74,.4)" stroke-width="1.2"/>
+        <rect x="65" y="90" width="140" height="14" rx="4" fill="rgba(184,146,74,.1)"/>
+        <rect x="65" y="90" width="14" height="60" rx="4" fill="rgba(184,146,74,.1)"/>
+        <rect x="191" y="90" width="14" height="60" rx="4" fill="rgba(184,146,74,.1)"/>
+        <!-- Стол -->
+        <rect x="90" y="175" width="80" height="50" rx="5" fill="none" stroke="rgba(184,146,74,.35)" stroke-width="1"/>
+        <!-- Кровать -->
+        <rect x="280" y="75" width="120" height="80" rx="6" fill="none" stroke="rgba(184,146,74,.4)" stroke-width="1.2"/>
+        <rect x="280" y="75" width="120" height="18" rx="4" fill="rgba(184,146,74,.1)"/>
+        <!-- Розетки -->
+        <circle cx="210" cy="255" r="4" fill="none" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+        <line x1="210" y1="251" x2="210" y2="256" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+        <circle cx="420" cy="170" r="4" fill="none" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+        <line x1="420" y1="166" x2="420" y2="171" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+        <circle cx="95" cy="265" r="4" fill="none" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+        <line x1="95" y1="261" x2="95" y2="266" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+        <!-- Светильники -->
+        <circle cx="155" cy="170" r="7" fill="none" stroke="rgba(255,240,150,.45)" stroke-width="1"/>
+        <line x1="155" y1="163" x2="155" y2="158" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+        <line x1="155" y1="177" x2="155" y2="182" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+        <line x1="148" y1="170" x2="143" y2="170" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+        <line x1="162" y1="170" x2="167" y2="170" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+        <circle cx="355" cy="120" r="7" fill="none" stroke="rgba(255,240,150,.45)" stroke-width="1"/>
+        <line x1="355" y1="113" x2="355" y2="108" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+        <line x1="355" y1="127" x2="355" y2="132" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+        <line x1="348" y1="120" x2="343" y2="120" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+        <line x1="362" y1="120" x2="367" y2="120" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+        <!-- Размерные линии -->
+        <line x1="50" y1="40" x2="450" y2="40" stroke="rgba(184,146,74,.25)" stroke-width=".8" stroke-dasharray="4,3"/>
+        <line x1="50" y1="36" x2="50" y2="44" stroke="rgba(184,146,74,.35)" stroke-width="1.2"/>
+        <line x1="450" y1="36" x2="450" y2="44" stroke="rgba(184,146,74,.35)" stroke-width="1.2"/>
+        <text x="250" y="34" text-anchor="middle" fill="rgba(184,146,74,.4)" font-size="8" font-family="Inter,sans-serif">11 400</text>
+        <!-- Легенда -->
+        <rect x="50" y="545" width="8" height="8" fill="none" stroke="rgba(184,146,74,.6)" stroke-width="1.2"/>
+        <text x="62" y="553" fill="rgba(184,146,74,.4)" font-size="7" font-family="Inter,sans-serif">Мебель</text>
+        <circle cx="120" cy="549" r="4" fill="none" stroke="rgba(255,210,60,.6)" stroke-width="1.2"/>
+        <text x="128" y="553" fill="rgba(184,146,74,.4)" font-size="7" font-family="Inter,sans-serif">Розетка</text>
+        <circle cx="190" cy="549" r="5" fill="none" stroke="rgba(255,240,150,.4)" stroke-width="1"/>
+        <text x="199" y="553" fill="rgba(184,146,74,.4)" font-size="7" font-family="Inter,sans-serif">Светильник</text>
+        <rect x="265" y="545" width="8" height="8" fill="rgba(100,180,255,.4)" rx="1"/>
+        <text x="277" y="553" fill="rgba(184,146,74,.4)" font-size="7" font-family="Inter,sans-serif">Окно</text>
+        <text x="450" y="553" text-anchor="end" fill="rgba(184,146,74,.25)" font-size="7" font-family="Inter,sans-serif">М 1:50</text>
+      </svg>
+    </div>
   </div>
 </section>
 
-<!-- WHY -->
-<section class="why" id="why">
-  <div class="section-label">Почему мы</div>
-  <div class="section-title">Проект за разумные деньги —<br/>без лишних трат</div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-icon">📐</div>
-      <h3>Чертежи под строительство</h3>
-      <p>Не просто красивые картинки, а рабочая документация с размерами и спецификациями — строители знают, что и куда.</p>
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner">
+    <div>
+      <span class="section-label">Почему нужен проект</span>
+      <h2>Ремонт без проекта —<br/>это <em>лотерея</em></h2>
+      <p class="problem-lead">
+        Строители делают так, как им удобнее — если нет чертежей. Потом оказывается, что розетка не там, труба мешает шкафу, а световой сценарий переделывают три раза. Каждый раз — за ваши деньги.
+      </p>
     </div>
-    <div class="why-card">
-      <div class="why-icon">⚡</div>
-      <h3>Срок от 7 рабочих дней</h3>
-      <p>Мы не растягиваем работу. Базовый проект готов через 7 дней, полный пакет — через 14.</p>
+    <div class="cost-comparison">
+      <div class="cost-row">
+        <div class="cost-label"><strong>Перенос розеток и выключателей</strong>«Мы думали, что строители сами знают»</div>
+        <div class="cost-price bad">−15 000 ₽</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-label"><strong>Переделка разводки воды</strong>Сантехника встала не туда</div>
+        <div class="cost-price bad">−28 000 ₽</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-label"><strong>Лишние стройматериалы</strong>Закупили «с запасом» без спецификации</div>
+        <div class="cost-price bad">−18 000 ₽</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-label"><strong>Переделка перегородки</strong>Диван не влез по плану</div>
+        <div class="cost-price bad">−22 000 ₽</div>
+      </div>
+      <div class="cost-total">
+        <div class="cost-total-label">Итого потерь без проекта<br/><span style="font-size:.78rem; opacity:.6">У реального клиента в 2024 году</span></div>
+        <div class="cost-total-num">83 000 ₽</div>
+      </div>
     </div>
-    <div class="why-card">
-      <div class="why-icon">💬</div>
-      <h3>Одна правка входит бесплатно</h3>
-      <p>После согласования планировки — одна правка бесплатно. Без скрытых доплат за каждое изменение.</p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <span class="section-label">Команда</span>
+  <h2>Нас двое — и это наша сила</h2>
+  <p class="section-lead">n² — это две Нади. Архитектор и инженер. Мы закрываем весь проект изнутри: от планировки до труб. Никаких субподрядчиков, никаких «позвоним третьему специалисту».</p>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-photo">🏛️</div>
+      <div class="team-info">
+        <div class="team-role">Архитектор</div>
+        <div class="team-name">Надежда</div>
+        <p class="team-desc">Занимается планировкой, расстановкой мебели и пространственными решениями. Делает так, чтобы квартира была удобной — а не просто красивой на бумаге.</p>
+        <div class="team-skills">
+          <span class="skill-tag">Планировка</span>
+          <span class="skill-tag">Расстановка мебели</span>
+          <span class="skill-tag">Зонирование</span>
+          <span class="skill-tag">ИИ-визуализация</span>
+        </div>
+      </div>
     </div>
-    <div class="why-card">
-      <div class="why-icon">🏠</div>
-      <h3>Работаем с любой площадью</h3>
-      <p>Студия 23 м² или частный дом 150 м² — одинаково внимательный подход и одни правила расчёта стоимости.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🤝</div>
-      <h3>Договор и поэтапная оплата</h3>
-      <p>50% предоплата, остаток после сдачи. Всё фиксируем в договоре: сроки, состав, количество листов.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🤖</div>
-      <h3>3D-визуализация на ИИ</h3>
-      <p>В пакете Полный — наглядные рендеры интерьера, сгенерированные искусственным интеллектом. Быстро и доступно.</p>
+    <div class="team-card reveal">
+      <div class="team-photo">⚙️</div>
+      <div class="team-info">
+        <div class="team-role">Инженер</div>
+        <div class="team-name">Надежда</div>
+        <p class="team-desc">Проектирует инженерные системы: электрику, освещение, водопровод и канализацию. Строители получают точные схемы — вопросов не остаётся.</p>
+        <div class="team-skills">
+          <span class="skill-tag">Электрика</span>
+          <span class="skill-tag">Освещение</span>
+          <span class="skill-tag">Водопровод</span>
+          <span class="skill-tag">Канализация</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section id="pricing">
-  <div class="pricing-header">
-    <div class="section-label">Тарифы</div>
-    <div class="section-title">Три пакета —<br/>выберите нужный</div>
-    <p class="section-sub">Цена зависит от площади. Укажем точную стоимость после бесплатного замера или по вашим обмерочным планам.</p>
+<section class="pricing" id="pricing">
+  <div class="pricing-head">
+    <div>
+      <span class="section-label">Тарифы</span>
+      <h2>Три пакета — один выберете под свои задачи</h2>
+    </div>
+    <p class="section-lead" style="max-width:320px;">Точная цена зависит от площади. Рассчитаем бесплатно после звонка.</p>
   </div>
-  <div class="pricing-grid">
+  <div class="plans">
 
-    <!-- БАЗОВЫЙ -->
-    <div class="plan">
-      <div class="plan-name">Пакет 1</div>
-      <div class="plan-title">Планировка</div>
-      <p class="plan-desc">Всё, что нужно, чтобы определиться с расстановкой мебели и согласовать перепланировку.</p>
-      <div class="plan-price">
-        <span class="price-from">от</span>
-        <span class="price-num">9 900 ₽</span>
+    <div class="plan reveal">
+      <div class="plan-header">
+        <div class="plan-num">Пакет 01</div>
+        <div class="plan-name">Планировка</div>
+        <p class="plan-tagline">Для тех, кому нужно понять расстановку и согласовать перепланировку</p>
+        <div class="plan-price">
+          <span class="plan-from">от</span>
+          <span class="plan-amount">9 900 ₽</span>
+        </div>
       </div>
-      <ul class="plan-features">
-        <li><span class="feat-check">✓</span> Обмер квартиры (или работа по вашим обмерам)</li>
-        <li><span class="feat-check">✓</span> 2–3 варианта планировки</li>
-        <li><span class="feat-check">✓</span> Расстановка мебели с размерами</li>
-        <li><span class="feat-check">✓</span> Условные обозначения</li>
-        <li><span class="feat-check">✓</span> Формат PDF + DWG</li>
-        <li><span class="feat-x">✗</span> Схема розеток и выключателей</li>
-        <li><span class="feat-x">✗</span> Схема освещения</li>
-        <li><span class="feat-x">✗</span> Водопровод и канализация</li>
-        <li><span class="feat-x">✗</span> ИИ-визуализация интерьера</li>
-      </ul>
-      <a class="btn-outline" href="#contact">Заказать</a>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><span class="fi yes">✓</span><span>2–3 варианта планировки</span></li>
+          <li><span class="fi yes">✓</span><span>Расстановка мебели с размерами</span></li>
+          <li><span class="fi yes">✓</span><span>Формат PDF + DWG</span></li>
+          <li><span class="fi yes">✓</span><span>1 правка бесплатно</span></li>
+          <li><span class="fi no">✗</span><span>Схема розеток и освещения</span></li>
+          <li><span class="fi no">✗</span><span>Водопровод и канализация</span></li>
+          <li><span class="fi no">✗</span><span>ИИ-визуализация</span></li>
+        </ul>
+        <a class="btn-ghost" href="#cta">Заказать</a>
+      </div>
     </div>
 
-    <!-- СТАНДАРТ -->
-    <div class="plan popular">
-      <div class="popular-badge">Популярный выбор</div>
-      <div class="plan-name">Пакет 2</div>
-      <div class="plan-title">Рабочий проект</div>
-      <p class="plan-desc">Полный комплект для бригады: планировка + все инженерные схемы с размерами.</p>
-      <div class="plan-price">
-        <span class="price-from">от</span>
-        <span class="price-num">19 900 ₽</span>
+    <div class="plan featured reveal">
+      <div class="plan-header">
+        <div class="plan-badge">Популярный</div>
+        <div class="plan-num">Пакет 02</div>
+        <div class="plan-name">Рабочий проект</div>
+        <p class="plan-tagline">Всё, что нужно строителям — планировка и полные инженерные схемы</p>
+        <div class="plan-price">
+          <span class="plan-from">от</span>
+          <span class="plan-amount">19 900 ₽</span>
+        </div>
       </div>
-      <ul class="plan-features">
-        <li><span class="feat-check">✓</span> Всё из пакета «Планировка»</li>
-        <li><span class="feat-check">✓</span> Схема розеток и выключателей</li>
-        <li><span class="feat-check">✓</span> Схема освещения (план светильников)</li>
-        <li><span class="feat-check">✓</span> Схема водопровода и канализации</li>
-        <li><span class="feat-check">✓</span> Размеры и привязки для строителей</li>
-        <li><span class="feat-check">✓</span> Спецификация материалов (укрупнённо)</li>
-        <li><span class="feat-check">✓</span> Формат PDF + DWG</li>
-        <li><span class="feat-x">✗</span> ИИ-визуализация интерьера</li>
-      </ul>
-      <a class="btn-primary" href="#contact">Заказать</a>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><span class="fi yes">✓</span><span>Всё из Пакета 01</span></li>
+          <li><span class="fi yes">✓</span><span>Схема розеток и выключателей</span></li>
+          <li><span class="fi yes">✓</span><span>План освещения со светильниками</span></li>
+          <li><span class="fi yes">✓</span><span>Водопровод и канализация</span></li>
+          <li><span class="fi yes">✓</span><span>Все размеры и привязки</span></li>
+          <li><span class="fi yes">✓</span><span>Спецификация (укрупнённо)</span></li>
+          <li><span class="fi no">✗</span><span>ИИ-визуализация</span></li>
+        </ul>
+        <a class="btn-dark" href="#cta">Заказать</a>
+      </div>
     </div>
 
-    <!-- ПОЛНЫЙ -->
-    <div class="plan">
-      <div class="plan-name">Пакет 3</div>
-      <div class="plan-title">Полный</div>
-      <p class="plan-desc">Рабочий проект + наглядные ИИ-рендеры каждой комнаты — покажете родственникам и рабочим.</p>
-      <div class="plan-price">
-        <span class="price-from">от</span>
-        <span class="price-num">29 900 ₽</span>
+    <div class="plan reveal">
+      <div class="plan-header">
+        <div class="plan-num">Пакет 03</div>
+        <div class="plan-name">Полный</div>
+        <p class="plan-tagline">Рабочий проект + наглядные ИИ-рендеры каждой комнаты</p>
+        <div class="plan-price">
+          <span class="plan-from">от</span>
+          <span class="plan-amount">29 900 ₽</span>
+        </div>
       </div>
-      <ul class="plan-features">
-        <li><span class="feat-check">✓</span> Всё из пакета «Рабочий проект»</li>
-        <li><span class="feat-check">✓</span> ИИ-визуализация каждой комнаты</li>
-        <li><span class="feat-check">✓</span> 3–5 ракурсов на каждое помещение</li>
-        <li><span class="feat-check">✓</span> Подбор цветовых решений</li>
-        <li><span class="feat-check">✓</span> Ориентировочный бюджет на отделку</li>
-        <li><span class="feat-check">✓</span> Приоритетный срок (–2 дня)</li>
-        <li><span class="feat-check">✓</span> 2 правки бесплатно</li>
-        <li><span class="feat-check">✓</span> Формат PDF + DWG</li>
-      </ul>
-      <a class="btn-outline" href="#contact">Заказать</a>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><span class="fi yes">✓</span><span>Всё из Пакета 02</span></li>
+          <li><span class="fi yes">✓</span><span>ИИ-визуализация всех комнат</span></li>
+          <li><span class="fi yes">✓</span><span>3–5 ракурсов на помещение</span></li>
+          <li><span class="fi yes">✓</span><span>Подбор цветовых решений</span></li>
+          <li><span class="fi yes">✓</span><span>Ориентировочный бюджет отделки</span></li>
+          <li><span class="fi yes">✓</span><span>2 правки бесплатно</span></li>
+          <li><span class="fi yes">✓</span><span>Приоритетный срок −2 дня</span></li>
+        </ul>
+        <a class="btn-ghost" href="#cta">Заказать</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section class="inside">
+  <span class="section-label">Состав проекта</span>
+  <h2>Что входит в чертежи</h2>
+  <p class="section-lead">Строители получают всё необходимое — без пробелов и вопросов «а где это должно быть».</p>
+  <div class="inside-grid">
+    <div class="inside-card reveal">
+      <div class="inside-icon">📐</div>
+      <h3>План с размерами</h3>
+      <p>Все стены, проёмы, ниши с точными габаритами. Строители знают что сносить и что возводить.</p>
+    </div>
+    <div class="inside-card reveal">
+      <div class="inside-icon">🛋️</div>
+      <h3>Расстановка мебели</h3>
+      <p>Каждый предмет мебели расставлен с учётом открывания дверей и зон прохода.</p>
+    </div>
+    <div class="inside-card reveal">
+      <div class="inside-icon">🔌</div>
+      <h3>Розетки и выключатели</h3>
+      <p>Точное положение каждой точки электрики с привязкой к стенам и высотой установки.</p>
+    </div>
+    <div class="inside-card reveal">
+      <div class="inside-icon">💡</div>
+      <h3>Схема освещения</h3>
+      <p>Где потолочный свет, где спот, где бра. Разводка по группам выключателей.</p>
+    </div>
+    <div class="inside-card reveal">
+      <div class="inside-icon">🚿</div>
+      <h3>Водопровод</h3>
+      <p>Точки подвода холодной и горячей воды с привязкой — сантехник работает по схеме.</p>
+    </div>
+    <div class="inside-card reveal">
+      <div class="inside-icon">🔩</div>
+      <h3>Канализация</h3>
+      <p>Схема выпусков и уклонов. Никаких сюрпризов при укладке труб в стяжку.</p>
+    </div>
+    <div class="inside-card reveal">
+      <div class="inside-icon">📋</div>
+      <h3>Спецификация</h3>
+      <p>Список материалов — купите ровно столько, сколько нужно. Не больше и не меньше.</p>
+    </div>
+    <div class="inside-card reveal">
+      <div class="inside-icon">🤖</div>
+      <h3>ИИ-визуализация</h3>
+      <p>В пакете «Полный» — рендеры каждой комнаты. Видите результат до начала ремонта.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-head">
+    <div>
+      <span class="section-label">Портфолио</span>
+      <h2>Последние проекты</h2>
+    </div>
+    <a class="btn-ghost" href="#cta">Хочу такой же →</a>
+  </div>
+  <div class="port-grid">
+
+    <div class="port-card reveal">
+      <div class="port-visual" style="background: linear-gradient(135deg,#1a1a3e,#0d2137);">
+        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+          <defs><pattern id="g2" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(184,146,74,.08)" stroke-width=".4"/></pattern></defs>
+          <rect width="320" height="240" fill="url(#g2)"/>
+          <rect x="30" y="25" width="260" height="190" fill="none" stroke="rgba(184,146,74,.8)" stroke-width="2" rx="1"/>
+          <line x1="30" y1="130" x2="170" y2="130" stroke="rgba(184,146,74,.6)" stroke-width="1.5"/>
+          <line x1="170" y1="25" x2="170" y2="165" stroke="rgba(184,146,74,.6)" stroke-width="1.5"/>
+          <rect x="45" y="40" width="90" height="50" rx="4" fill="none" stroke="rgba(184,146,74,.3)" stroke-width="1"/>
+          <rect x="45" y="40" width="90" height="10" rx="3" fill="rgba(184,146,74,.1)"/>
+          <rect x="180" y="35" width="80" height="65" rx="4" fill="none" stroke="rgba(184,146,74,.3)" stroke-width="1"/>
+          <rect x="180" y="35" width="80" height="14" rx="3" fill="rgba(184,146,74,.1)"/>
+          <text x="90" y="105" text-anchor="middle" fill="rgba(184,146,74,.5)" font-size="7" font-family="Inter,sans-serif" letter-spacing="1">ГОСТИНАЯ</text>
+          <text x="220" y="112" text-anchor="middle" fill="rgba(184,146,74,.5)" font-size="7" font-family="Inter,sans-serif" letter-spacing="1">СПАЛЬНЯ</text>
+          <circle cx="60" cy="125" r="3" fill="none" stroke="rgba(255,210,60,.6)" stroke-width="1"/>
+          <circle cx="155" cy="125" r="3" fill="none" stroke="rgba(255,210,60,.6)" stroke-width="1"/>
+          <circle cx="255" cy="125" r="3" fill="none" stroke="rgba(255,210,60,.6)" stroke-width="1"/>
+        </svg>
+        <div class="port-tag">Пакет 01</div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">Студия 34 м², Москва</div>
+        <div class="port-meta">Перепланировка · 3 варианта · 7 дней</div>
+      </div>
+    </div>
+
+    <div class="port-card reveal">
+      <div class="port-visual" style="background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);">
+        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+          <defs><pattern id="g3" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(184,146,74,.08)" stroke-width=".4"/></pattern></defs>
+          <rect width="320" height="240" fill="url(#g3)"/>
+          <rect x="25" y="20" width="270" height="200" fill="none" stroke="rgba(184,146,74,.8)" stroke-width="2" rx="1"/>
+          <line x1="25" y1="120" x2="145" y2="120" stroke="rgba(184,146,74,.6)" stroke-width="1.5"/>
+          <line x1="145" y1="20" x2="145" y2="155" stroke="rgba(184,146,74,.6)" stroke-width="1.5"/>
+          <line x1="145" y1="80" x2="295" y2="80" stroke="rgba(184,146,74,.6)" stroke-width="1.5"/>
+          <!-- электро символы -->
+          <circle cx="50" cy="115" r="3.5" fill="none" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+          <line x1="50" y1="111.5" x2="50" y2="115" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+          <circle cx="110" cy="115" r="3.5" fill="none" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+          <circle cx="200" cy="75" r="3.5" fill="none" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+          <circle cx="260" cy="75" r="3.5" fill="none" stroke="rgba(255,210,60,.7)" stroke-width="1.2"/>
+          <!-- светильники -->
+          <circle cx="85" cy="70" r="5" fill="none" stroke="rgba(255,240,150,.5)" stroke-width="1"/>
+          <line x1="85" y1="65" x2="85" y2="61" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+          <line x1="85" y1="75" x2="85" y2="79" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+          <line x1="80" y1="70" x2="76" y2="70" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+          <line x1="90" y1="70" x2="94" y2="70" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+          <circle cx="215" cy="140" r="5" fill="none" stroke="rgba(255,240,150,.5)" stroke-width="1"/>
+          <line x1="215" y1="135" x2="215" y2="131" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+          <line x1="215" y1="145" x2="215" y2="149" stroke="rgba(255,240,150,.3)" stroke-width=".8"/>
+          <text x="85" y="110" text-anchor="middle" fill="rgba(184,146,74,.5)" font-size="7" font-family="Inter,sans-serif" letter-spacing="1">ГОСТИНАЯ</text>
+          <text x="215" y="55" text-anchor="middle" fill="rgba(184,146,74,.5)" font-size="7" font-family="Inter,sans-serif" letter-spacing="1">КУХНЯ</text>
+        </svg>
+        <div class="port-tag">Пакет 02</div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">2-комн. квартира 52 м², СПб</div>
+        <div class="port-meta">Электрика, свет, водопровод · 12 дней</div>
+      </div>
+    </div>
+
+    <div class="port-card reveal">
+      <div class="port-visual" style="background: linear-gradient(135deg,#1a0533,#2d1b69,#11998e);">
+        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+          <defs><pattern id="g4" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(255,255,255,.06)" stroke-width=".4"/></pattern></defs>
+          <rect width="320" height="240" fill="url(#g4)"/>
+          <rect x="20" y="15" width="280" height="210" fill="none" stroke="rgba(184,146,74,.8)" stroke-width="2" rx="1"/>
+          <line x1="20" y1="115" x2="170" y2="115" stroke="rgba(184,146,74,.6)" stroke-width="1.5"/>
+          <line x1="170" y1="15" x2="170" y2="145" stroke="rgba(184,146,74,.6)" stroke-width="1.5"/>
+          <line x1="170" y1="80" x2="300" y2="80" stroke="rgba(184,146,74,.6)" stroke-width="1.5"/>
+          <!-- ИИ-рендер метка -->
+          <rect x="30" y="125" width="130" height="85" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)" stroke-width=".8"/>
+          <text x="95" y="172" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="8" font-family="Inter,sans-serif">ИИ-рендер</text>
+          <text x="95" y="184" text-anchor="middle" fill="rgba(255,255,255,.15)" font-size="7" font-family="Inter,sans-serif">кухня-гостиная</text>
+          <rect x="180" y="90" width="110" height="110" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)" stroke-width=".8"/>
+          <text x="235" y="150" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="8" font-family="Inter,sans-serif">ИИ-рендер</text>
+          <text x="235" y="162" text-anchor="middle" fill="rgba(255,255,255,.15)" font-size="7" font-family="Inter,sans-serif">спальня</text>
+          <text x="160" y="210" text-anchor="middle" fill="rgba(184,146,74,.4)" font-size="7" font-family="Inter,sans-serif">15 рендеров в проекте</text>
+        </svg>
+        <div class="port-tag">Пакет 03</div>
+      </div>
+      <div class="port-info">
+        <div class="port-title">3-комн. квартира 74 м², Екатеринбург</div>
+        <div class="port-meta">Полный проект + 15 ИИ-рендеров · 14 дней</div>
+      </div>
     </div>
 
   </div>
@@ -816,154 +1000,106 @@
 
 <!-- PROCESS -->
 <section class="process" id="process">
-  <div class="section-label">Как работаем</div>
-  <div class="section-title">Четыре шага от заявки<br/>до готового проекта</div>
-  <p class="section-sub">Всё онлайн — приезжать никуда не нужно. Замер делаем сами или принимаем ваши обмерочные планы.</p>
-  <div class="process-steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h3>Заявка</h3>
-      <p>Оставляете контакт. Менеджер перезванивает в течение часа, обсуждает задачу и выбирает пакет.</p>
+  <span class="section-label">Как работаем</span>
+  <h2>От заявки до чертежей — без лишних шагов</h2>
+  <p class="section-lead">Всё онлайн. Не нужно никуда ехать — вся коммуникация в мессенджере.</p>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-n">01</div>
+      <h3>Заявка и расчёт</h3>
+      <p>Оставляете номер. Перезваниваем за час. Считаем стоимость по площади и выбираем пакет.</p>
     </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h3>Обмер и ТЗ</h3>
-      <p>Выезжаем на замер или принимаем ваши планы. Фиксируем пожелания и подписываем договор.</p>
+    <div class="step reveal">
+      <div class="step-n">02</div>
+      <h3>Обмер или планы</h3>
+      <p>Выезжаем на замер (Москва и МО) или работаем по вашим обмерочным планам. Подписываем договор.</p>
     </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h3>Разработка</h3>
-      <p>Готовим варианты планировки, согласовываем с вами, затем разрабатываем все чертежи по пакету.</p>
+    <div class="step reveal">
+      <div class="step-n">03</div>
+      <h3>Согласование</h3>
+      <p>Показываем 2–3 варианта планировки. Выбираете лучший и вносите правки до старта чертежей.</p>
     </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <h3>Сдача</h3>
-      <p>Присылаем PDF и DWG-файлы. Вносим одну бесплатную правку при необходимости.</p>
+    <div class="step reveal">
+      <div class="step-n">04</div>
+      <h3>Сдача проекта</h3>
+      <p>Получаете PDF + DWG. Передаёте строителям — всё понятно без пояснений.</p>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="portfolio-header">
-    <div>
-      <div class="section-label">Примеры работ</div>
-      <div class="section-title">Последние проекты</div>
+<!-- GUARANTEES -->
+<section class="guarantees">
+  <span class="section-label">Гарантии</span>
+  <h2>Вы ничем не рискуете</h2>
+  <div class="guarantees-grid">
+    <div class="g-card reveal">
+      <div class="g-icon">📄</div>
+      <h3>Договор с фиксированным составом</h3>
+      <p>В договоре прописаны сроки, количество листов и состав проекта. Если мы не уложились — возвращаем предоплату.</p>
     </div>
-    <a class="btn-outline" href="#contact" style="white-space:nowrap">Хочу такой же →</a>
-  </div>
-  <div class="portfolio-grid">
-
-    <div class="portfolio-card">
-      <div class="img-placeholder ph-1">
-        <span>📐</span>
-        <div>Чертёж • план мебели</div>
-      </div>
-      <div class="portfolio-info">
-        <div class="portfolio-tag">Пакет 1 — Планировка</div>
-        <div class="portfolio-name">Студия 34 м², Москва</div>
-        <div class="portfolio-meta">Перепланировка · 2 варианта планировки</div>
-      </div>
+    <div class="g-card reveal">
+      <div class="g-icon">✏️</div>
+      <h3>Правка входит в цену</h3>
+      <p>Одна корректировка после согласования бесплатно. Во «Полном» пакете — две. Без скрытых доплат.</p>
     </div>
-
-    <div class="portfolio-card">
-      <div class="img-placeholder ph-2">
-        <span>💡</span>
-        <div>Схема освещения</div>
-      </div>
-      <div class="portfolio-info">
-        <div class="portfolio-tag">Пакет 2 — Рабочий проект</div>
-        <div class="portfolio-name">2-комн. квартира 52 м², СПб</div>
-        <div class="portfolio-meta">Розетки, свет, водопровод, канализация</div>
-      </div>
+    <div class="g-card reveal">
+      <div class="g-icon">💳</div>
+      <h3>Поэтапная оплата</h3>
+      <p>50% предоплата, остаток — только после того, как приняли и подписали проект. Не понравится — не платите.</p>
     </div>
-
-    <div class="portfolio-card">
-      <div class="img-placeholder ph-3">
-        <span>🛋️</span>
-        <div>ИИ-визуализация</div>
-      </div>
-      <div class="portfolio-info">
-        <div class="portfolio-tag">Пакет 3 — Полный</div>
-        <div class="portfolio-name">3-комн. квартира 74 м², Екатеринбург</div>
-        <div class="portfolio-meta">Полный проект + 15 ИИ-рендеров</div>
-      </div>
+    <div class="g-card reveal">
+      <div class="g-icon">🏗️</div>
+      <h3>Строители разберутся</h3>
+      <p>Если бригада задаёт вопросы по нашим чертежам — отвечаем сами. Бесплатно, в течение всего ремонта.</p>
     </div>
-
-    <div class="portfolio-card">
-      <div class="img-placeholder ph-4">
-        <span>🏠</span>
-        <div>Частный дом</div>
-      </div>
-      <div class="portfolio-info">
-        <div class="portfolio-tag">Пакет 2 — Рабочий проект</div>
-        <div class="portfolio-name">Таунхаус 85 м², Краснодар</div>
-        <div class="portfolio-meta">2 этажа · инженерные схемы</div>
-      </div>
+    <div class="g-card reveal">
+      <div class="g-icon">🔒</div>
+      <h3>Исходники остаются у вас</h3>
+      <p>DWG-файл — ваш. Любой архитектор или проектировщик сможет продолжить работу с нашим проектом.</p>
     </div>
-
-    <div class="portfolio-card">
-      <div class="img-placeholder ph-5">
-        <span>🚿</span>
-        <div>Санузел • водопровод</div>
-      </div>
-      <div class="portfolio-info">
-        <div class="portfolio-tag">Пакет 2 — Рабочий проект</div>
-        <div class="portfolio-name">Студия 28 м², Новосибирск</div>
-        <div class="portfolio-meta">Совмещённый санузел · точки водопровода</div>
-      </div>
+    <div class="g-card reveal">
+      <div class="g-icon">⏱️</div>
+      <h3>Сроки соблюдаем</h3>
+      <p>Базовый проект — 7 рабочих дней. Полный — 14. Дольше не тянем — вы теряете деньги на простое строителей.</p>
     </div>
-
-    <div class="portfolio-card">
-      <div class="img-placeholder ph-6">
-        <span>✨</span>
-        <div>ИИ-рендер кухни</div>
-      </div>
-      <div class="portfolio-info">
-        <div class="portfolio-tag">Пакет 3 — Полный</div>
-        <div class="portfolio-name">2-комн. квартира 60 м², Казань</div>
-        <div class="portfolio-meta">ИИ-визуализация + подбор цветов</div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
-  <div class="section-label">Отзывы</div>
-  <div class="section-title">Что говорят клиенты</div>
+  <span class="section-label">Отзывы</span>
+  <h2>Что говорят клиенты</h2>
   <div class="reviews-grid">
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">«Взяли пакет «Рабочий проект» для двушки в 55 м². Строители сказали, что такие чертежи им редко приносят — всё с размерами, ничего не нужно додумывать. Успели за 12 дней.»</p>
+    <div class="review reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Строители сразу сказали — такие чертежи видят редко. Всё с размерами, розетки подписаны, труба с уклоном показана. Ни одного вопроса по ходу ремонта — сами всё сделали по плану.»</p>
       <div class="reviewer">
-        <div class="reviewer-avatar">👩</div>
+        <div class="rev-av">👩</div>
         <div>
-          <div class="reviewer-name">Марина К.</div>
-          <div class="reviewer-meta">Москва · февраль 2025</div>
+          <div class="rev-name">Марина К.</div>
+          <div class="rev-meta">Москва · двушка 55 м² · февраль 2025</div>
         </div>
       </div>
     </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">«Брал базовый пакет — нужно было только разобраться с планировкой студии. Три варианта расстановки, объяснили плюсы и минусы каждого. Выбрали второй, и это огонь.»</p>
+    <div class="review reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Сначала думал, зачем платить за проект, когда бригада "всё знает". Потом посчитал — без проекта потратил бы на переделки вдвое больше. Взял пакет 02 и не пожалел ни разу.»</p>
       <div class="reviewer">
-        <div class="reviewer-avatar">👨</div>
+        <div class="rev-av">👨</div>
         <div>
-          <div class="reviewer-name">Дмитрий В.</div>
-          <div class="reviewer-meta">Екатеринбург · март 2025</div>
+          <div class="rev-name">Дмитрий В.</div>
+          <div class="rev-meta">Екатеринбург · студия 38 м² · март 2025</div>
         </div>
       </div>
     </div>
-    <div class="review-card">
-      <div class="stars">★★★★☆</div>
-      <p class="review-text">«ИИ-рендеры поначалу скептически воспринял, но получилось достойно — сразу понял, как будет выглядеть кухня. Жена в восторге. Стоимость в разы ниже, чем в премиум-студиях.»</p>
+    <div class="review reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">«Две Нади — это реально удобно. Одна по плану отвечала, вторая по трубам и свету. Никаких "мы уточним". Всё быстро, всё по делу. Рекомендую всем знакомым.»</p>
       <div class="reviewer">
-        <div class="reviewer-avatar">👨</div>
+        <div class="rev-av">👩</div>
         <div>
-          <div class="reviewer-name">Алексей Н.</div>
-          <div class="reviewer-meta">Краснодар · апрель 2025</div>
+          <div class="rev-name">Алёна Р.</div>
+          <div class="rev-meta">Краснодар · трёшка 78 м² · апрель 2025</div>
         </div>
       </div>
     </div>
@@ -971,82 +1107,95 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq">
-  <div class="section-label">Вопросы и ответы</div>
-  <div class="section-title">Часто спрашивают</div>
-  <div class="faq-list">
+<section class="faq" id="faq">
+  <span class="section-label">Вопросы и ответы</span>
+  <h2>Часто спрашивают</h2>
+  <div class="faq-wrap">
     <div class="faq-item">
-      <div class="faq-q">Нужно ли приезжать в офис?</div>
-      <div class="faq-a">Нет. Всё общение онлайн — мессенджер, почта, видеозвонок. Замер делаем с выездом в Москве и МО; в других городах принимаем ваши обмерочные планы или помогаем сделать замер самостоятельно по инструкции.</div>
+      <button class="faq-q" onclick="toggleFaq(this)">Нужно ли приезжать в офис? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Нет. Всё онлайн — переписка, звонки, согласование. Замер делаем с выездом по Москве и МО; в других городах помогаем сделать замер самостоятельно по инструкции или работаем по планам застройщика.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">В каком формате получу чертежи?</div>
-      <div class="faq-a">PDF для печати и согласования + DWG (AutoCAD) для передачи строителям или последующего редактирования. ИИ-рендеры — JPEG с высоким разрешением.</div>
+      <button class="faq-q" onclick="toggleFaq(this)">В каком формате получу файлы? <span class="faq-icon">+</span></button>
+      <div class="faq-a">PDF — для печати и передачи строителям. DWG (AutoCAD) — для редактирования или передачи другому специалисту. ИИ-рендеры — JPEG с разрешением 2000×2000 пикселей и выше.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Если строители захотят что-то изменить по ходу?</div>
-      <div class="faq-a">Маленькие корректировки (перенести розетку на 20 см) — бесплатно. Существенные изменения после согласования рассчитываются отдельно по часовому тарифу.</div>
+      <button class="faq-q" onclick="toggleFaq(this)">Строители что-то переделали — кто отвечает? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Если бригада отступила от наших чертежей без согласования с вами — это их ответственность. Наш проект фиксирует правильное решение, и любое отклонение от него видно сразу.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Можно ли заказать только схему электрики без остального?</div>
-      <div class="faq-a">Да, это возможно — обсудим состав работ индивидуально и выставим отдельное КП.</div>
+      <button class="faq-q" onclick="toggleFaq(this)">Можно заказать только электрику без планировки? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Да. Если планировка уже есть — сделаем только инженерные схемы. Обсудим состав и выставим отдельное КП.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Чем ИИ-рендеры отличаются от 3D Max?</div>
-      <div class="faq-a">ИИ-рендеры — быстро, дёшево, наглядно. Они дают общее представление о пространстве и цветах. Визуализация в 3D Max — фотореалистичное кино с правильными материалами и светом, но стоит в 3–5 раз дороже. Для эконом-ремонта ИИ-рендеров вполне достаточно.</div>
+      <button class="faq-q" onclick="toggleFaq(this)">Чем ИИ-рендеры отличаются от 3D Max? <span class="faq-icon">+</span></button>
+      <div class="faq-a">ИИ-рендеры быстро показывают общую атмосферу: цвета, мебель, свет. Для принятия решений по эконом-ремонту — достаточно. 3D Max — это фотореализм с точными материалами, но стоит в 4–6 раз дороже и нужен скорее в премиум-сегменте.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Вы работаете с ипотечными квартирами в новостройке?</div>
-      <div class="faq-a">Да, это самый частый случай. Работаем по планам застройщика до начала стройки, чтобы вы успели заказать сантехнику и электрику заранее.</div>
+      <button class="faq-q" onclick="toggleFaq(this)">Работаете с новостройками в стадии чистовой отделки? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Да, это наш самый частый случай. Работаем по планам застройщика ещё до заезда — так вы заранее заказываете сантехнику, выбираете плитку и не переплачиваете за срочность.</div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="contact">
-  <div class="section-label">Связаться</div>
-  <div class="section-title">Получите бесплатный расчёт стоимости</div>
-  <p class="section-sub">Оставьте номер — перезвоним в течение часа, посчитаем проект и ответим на вопросы.</p>
+<section class="cta" id="cta">
+  <span class="section-label">Связаться</span>
+  <h2>Рассчитаем стоимость бесплатно — за один звонок</h2>
+  <p class="section-lead">Оставьте номер. Перезвоним в течение часа, уточним площадь и задачи — назовём точную цену.</p>
   <form class="cta-form" onsubmit="handleSubmit(event)">
-    <input class="cta-input" type="tel" placeholder="Ваш телефон" autocomplete="tel" required />
-    <button class="btn-primary" type="submit">Перезвоните мне</button>
+    <input class="cta-input" type="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel" required />
+    <button class="btn-dark" type="submit">Перезвоните мне</button>
   </form>
-  <p style="font-size:0.78rem; color:rgba(255,255,255,0.25); margin-top:1rem;">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+  <p class="cta-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+  <div class="cta-icons">
+    <div class="cta-icon-item"><span>📄</span> Договор</div>
+    <div class="cta-icon-item"><span>💳</span> Поэтапная оплата</div>
+    <div class="cta-icon-item"><span>✏️</span> Правка входит в цену</div>
+    <div class="cta-icon-item"><span>⏱️</span> Срок от 7 дней</div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <a class="footer-logo" href="#">n2 <span>Архитектурная студия</span></a>
+  <div class="footer-logo-wrap">
+    <div class="footer-mark">n²</div>
+    <div class="footer-name">Архитектурная студия</div>
+  </div>
   <p>© 2025 n2 Архитектурная студия. Дизайн-проекты квартир и домов.</p>
   <div class="footer-links">
     <a href="#">Политика конфиденциальности</a>
     <a href="#pricing">Тарифы</a>
-    <a href="#contact">Контакты</a>
+    <a href="#cta">Контакты</a>
   </div>
 </footer>
 
 <script>
+  function toggleFaq(btn) {
+    const ans = btn.nextElementSibling;
+    const isOpen = ans.classList.contains('open');
+    document.querySelectorAll('.faq-a.open').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q.open').forEach(q => q.classList.remove('open'));
+    if (!isOpen) { ans.classList.add('open'); btn.classList.add('open'); }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
     btn.textContent = '✓ Заявка принята!';
-    btn.style.background = '#3d9a5c';
+    btn.style.background = '#2d6a4f';
     btn.disabled = true;
   }
 
-  // Плавное появление карточек при скролле
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) el.target.style.opacity = '1';
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 60);
+        io.unobserve(e.target);
+      }
     });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.why-card, .plan, .portfolio-card, .review-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transition = 'opacity 0.5s ease';
-    observer.observe(el);
-  });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
-
 </body>
 </html>
